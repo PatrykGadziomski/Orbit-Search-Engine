@@ -1,6 +1,7 @@
-# NASA-Mission-SE
+# ORBIT
+## Optimized Retrieval for Brilliant Interstellar Technologiessudo 
 
-sudo systemctl stop flaskapp.service
+systemctl stop flaskapp.service
 
 sudo systemctl disable flaskapp.service
 

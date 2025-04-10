@@ -1,0 +1,317 @@
+[
+  {
+    "title": "Remarks on Talagrand's deviation inequality for Rademacher functions",
+    "summary": "Recently Talagrand [T] estimated the deviation of a function on $\\{0,1\\}^n$\nfrom its median in terms of the Lipschitz constant of a convex extension of $f$\nto $\\ell ^n_2$; namely, he proved that\n  $$P(|f-M_f| > c) \\le 4 e^{-t^2/4\\sigma ^2}$$ where $\\sigma$ is the Lipschitz\nconstant of the extension of $f$ and $P$ is the natural probability on\n$\\{0,1\\}^n$.\n  Here we extend this inequality to more general product probability spaces; in\nparticular, we prove the same inequality for $\\{0,1\\}^n$ with the product\nmeasure $((1-\\eta)\\delta _0 + \\eta \\delta _1)^n$. We believe this should be\nuseful in proofs involving random selections. As an illustration of possible\napplications we give a simple proof (though not with the right dependence on\n$\\varepsilon$) of the Bourgain, Lindenstrauss, Milman result [BLM] that for\n$1\\le r < s \\le 2$ and $\\varepsilon >0$, every $n$-dimensional subspace of $L_s\n\\ (1+\\varepsilon)$-embeds into $\\ell ^N_r$ with $N = c(r,s,\\varepsilon)n$.",
+    "published": "1990-02-16T00:00:00Z",
+    "updated": "1990-02-16T00:00:00Z",
+    "authors": [
+      "William B. Johnson",
+      "Gideon Schechtman"
+    ],
+    "link": "http://arxiv.org/abs/math/9201208v1"
+  },
+  {
+    "title": "Integral Operators on Spaces of Continuous Vector-valued Functions",
+    "summary": "Let $X$ be a compact Hausdorff space, let $E$ be a Banach space, and let\n$C(X,E)$ stand for the Banach space of $E$-valued continuous functions on $X$\nunder the uniform norm. In this paper we characterize Integral operators (in\nthe sense of Grothendieck) on $C(X,E)$ spaces in term of their representing\nvector measures. This is then used to give some applications to Nuclear\noperators on $C(X,E)$ spaces.",
+    "published": "1990-03-15T15:00:00Z",
+    "updated": "1990-03-15T15:00:00Z",
+    "authors": [
+      "Paulette Saab"
+    ],
+    "link": "http://arxiv.org/abs/math/9201210v1"
+  },
+  {
+    "title": "Nuclear operators on spaces of continuous vector-valued functions",
+    "summary": "Let $\\Omega$ be a compact Hausdorff space, let $E$ be a Banach space, and let\n$C(\\Omega, E)$ stand for the Banach space of all $E$-valued continuous\nfunctions on $\\Omega$ under supnorm. In this paper we study when nuclear\noperators on $C(\\Omega, E)$ spaces can be completely characterized in terms of\nproperties of their representing vector measures. We also show that if $F$ is a\nBanach space and if $T:\\ C(\\Omega, E)\\rightarrow F$ is a nuclear operator, then\n$T$ induces a bounded linear operator $T^\\#$ from the space $C(\\Omega)$ of\nscalar valued continuous functions on $\\Omega$ into $\\slN(E,F)$ the space of\nnuclear operators from $E$ to $F$, in this case we show that $E^*$ has the\nRadon-Nikodym property if and only if $T^\\#$ is nuclear whenever $T$ is\nnuclear.",
+    "published": "1990-03-27T19:45:00Z",
+    "updated": "1990-03-27T19:45:00Z",
+    "authors": [
+      "Paulette Saab",
+      "Brenda Smith"
+    ],
+    "link": "http://arxiv.org/abs/math/9201211v1"
+  },
+  {
+    "title": "Remarks on iterated cubic maps",
+    "summary": "This note will discuss the dynamics of iterated cubic maps from the real or\ncomplex line to itself, and will describe the geography of the parameter space\nfor such maps. It is a rough survey with few precise statements or proofs, and\ndepends strongly on work by Douady, Hubbard, Branner and Rees.",
+    "published": "1990-05-12T00:00:00Z",
+    "updated": "1990-05-12T00:00:00Z",
+    "authors": [
+      "John W. Milnor"
+    ],
+    "link": "http://arxiv.org/abs/math/9201273v1"
+  },
+  {
+    "title": "Permutations of the Haar system",
+    "summary": "General permutations acting on the Haar system are investigated. We give a\nnecessary and sufficient condition for permutations to induce an isomorphism on\ndyadic BMO. Extensions of this characterization to Lipschitz spaces $\\lip,\n(0<p\\leq1)$ are obtained. When specialized to permutations which act on one\nlevel of the Haar system only, our approach leads to a short straightforward\nproof of a result due to E.M.Semyonov and B.Stoeckert.",
+    "published": "1990-06-25T15:32:55Z",
+    "updated": "1990-06-25T15:32:55Z",
+    "authors": [
+      "Paul F. X. Müller"
+    ],
+    "link": "http://arxiv.org/abs/math/9201213v1"
+  },
+  {
+    "title": "On the complemented subspaces of X_p",
+    "summary": "In this paper we prove some results related to the problem of isomorphically\nclassifying the complemented subspaces of $X_{p}$. We characterize the\ncomplemented subspaces of $X_{p}$ which are isomorphic to $X_{p}$ by showing\nthat such a space must contain a canonical complemented subspace isomorphic to\n$X_{p}.$ We also give some characterizations of complemented subspaces of\n$X_{p}$ isomorphic to $\\ell_{p}\\oplus \\ell_{2}.$",
+    "published": "1990-07-20T18:06:00Z",
+    "updated": "1990-07-20T18:06:00Z",
+    "authors": [
+      "Dale E. Alspach"
+    ],
+    "link": "http://arxiv.org/abs/math/9201214v1"
+  },
+  {
+    "title": "The plank problem for symmetric bodies",
+    "summary": "Given a symmetric convex body $C$ and $n$ hyperplanes in an Euclidean space,\nthere is a translate of a multiple of $C$, at least ${1\\over n+1}$ times as\nlarge, inside $C$, whose interior does not meet any of the hyperplanes. The\nresult generalizes Bang's solution of the plank problem of Tarski and has\napplications to Diophantine approximation.",
+    "published": "1990-09-25T14:45:00Z",
+    "updated": "1990-09-25T14:45:00Z",
+    "authors": [
+      "Keith Ball"
+    ],
+    "link": "http://arxiv.org/abs/math/9201218v1"
+  },
+  {
+    "title": "On quotients of Banach spaces having shrinking unconditional bases",
+    "summary": "It is proved that if a Banach space $Y$ is a quotient of a Banach space\nhaving a shrinking unconditional basis, then every normalized weakly null\nsequence in $Y$ has an unconditional subsequence. The proof yields the\ncorollary that every quotient of Schreier's space is $c_o$-saturated.",
+    "published": "1990-11-16T00:00:00Z",
+    "updated": "1990-11-16T00:00:00Z",
+    "authors": [
+      "Edward Odell"
+    ],
+    "link": "http://arxiv.org/abs/math/9201219v1"
+  },
+  {
+    "title": "The proportional UAP characterizes weak Hilbert spaces",
+    "summary": "We prove that a Banach space has the uniform approximation property with\nproportional growth of the uniformity function iff it is a weak Hilbert space.",
+    "published": "1990-12-31T00:00:00Z",
+    "updated": "1990-12-31T00:00:00Z",
+    "authors": [
+      "William B. Johnson",
+      "Gilles Pisier"
+    ],
+    "link": "http://arxiv.org/abs/math/9201220v1"
+  },
+  {
+    "title": "Non dentable sets in Banach spaces with separable dual",
+    "summary": "A non RNP Banach space E is constructed such that $E^{*}$ is separable and\nRNP is equivalent to PCP on the subsets of E.",
+    "published": "1991-02-05T20:34:26Z",
+    "updated": "1991-02-05T20:34:26Z",
+    "authors": [
+      "Spiros A. Argyros",
+      "Irene Deliyanni"
+    ],
+    "link": "http://arxiv.org/abs/math/9201222v1"
+  },
+  {
+    "title": "A partial description of the parameter space of rational maps of degree\n  two: Part 2",
+    "summary": "This continues the investigation of a combinatorial model for the variation\nof dynamics in the family of rational maps of degree two, by concentrating on\nthose varieties in which one critical point is periodic. We prove some general\nresults about nonrational critically finite degree two branched coverings, and\nfinally identify the boundary of the rational maps in the combinatorial model,\nthus completing the proofs of results announced in Part 1.",
+    "published": "1991-02-25T00:00:00Z",
+    "updated": "1991-02-25T00:00:00Z",
+    "authors": [
+      "Mary Rees"
+    ],
+    "link": "http://arxiv.org/abs/math/9201279v1"
+  },
+  {
+    "title": "On Schreier unconditional sequences",
+    "summary": "Let $(x_n)$ be a normalized weakly null sequence in a Banach space and let\n$\\varep>0$. We show that there exists a subsequence $(y_n)$ with the following\nproperty: $$\\hbox{ if }\\ (a_i)\\subseteq \\IR\\ \\hbox{ and }\\ F\\subseteq \\nat$$\nsatisfies $\\min F\\le |F|$ then $$\\big\\|\\sum_{i\\in F} a_i y_i\\big\\| \\le\n(2+\\varep) \\big\\| \\sum a_iy_i\\big\\|\\ . $$",
+    "published": "1991-03-22T00:00:00Z",
+    "updated": "1991-03-22T00:00:00Z",
+    "authors": [
+      "Edward Odell"
+    ],
+    "link": "http://arxiv.org/abs/math/9201224v1"
+  },
+  {
+    "title": "An arbitrarily distortable Banach space",
+    "summary": "In this work we construct a ``Tsirelson like Banach space'' which is\narbitrarily distortable.",
+    "published": "1991-04-03T00:00:00Z",
+    "updated": "1991-04-03T00:00:00Z",
+    "authors": [
+      "Thomas Schlumprecht"
+    ],
+    "link": "http://arxiv.org/abs/math/9201225v1"
+  },
+  {
+    "title": "Critical circle maps near bifurcation",
+    "summary": "We estimate harmonic scalings in the parameter space of a one-parameter\nfamily of critical circle maps. These estimates lead to the conclusion that the\nHausdorff dimension of the complement of the frequency-locking set is less than\n$1$ but not less than $1/3$. Moreover, the rotation number is a H\\\"{o}lder\ncontinuous function of the parameter.",
+    "published": "1991-04-27T00:00:00Z",
+    "updated": "1991-04-27T00:00:00Z",
+    "authors": [
+      "Jacek Graczyk",
+      "Grzegorz Swiatek"
+    ],
+    "link": "http://arxiv.org/abs/math/9201283v1"
+  },
+  {
+    "title": "Interpolation of operators when the extreme spaces are $L^\\infty$",
+    "summary": "In this paper, equivalence between interpolation properties of linear\noperators and monotonicity conditions are studied, for a pair $(X_0,X_1)$ of\nrearrangement invariant quasi Banach spaces, when the extreme spaces of the\ninterpolation are $L^\\infty$ and a pair $(A_0,A_1)$ under some assumptions.\nWeak and restricted weak intermediate spaces fall in our context. Applications\nto classical Lorentz and Lorentz-Orlicz spaces are given.",
+    "published": "1991-04-29T23:01:13Z",
+    "updated": "1991-04-29T23:01:13Z",
+    "authors": [
+      "Jesús Bastero",
+      "Francisco J. Ruiz"
+    ],
+    "link": "http://arxiv.org/abs/math/9201226v1"
+  },
+  {
+    "title": "The Teichmüller space of an Anosov diffeomorphism of $T^2$",
+    "summary": "In this paper we consider the space of smooth conjugacy classes of an Anosov\ndiffeomorphism of the two-torus. The only 2-manifold that supports an Anosov\ndiffeomorphism is the 2-torus, and Franks and Manning showed that every such\ndiffeomorphism is topologically conjugate to a linear example, and furthermore,\nthe eigenvalues at periodic points are a complete smooth invariant. The\nquestion arises: what sets of eigenvalues occur as the Anosov diffeomorphism\nranges over a topological conjugacy class? This question can be reformulated:\nwhat pairs of cohomology classes (one determined by the expanding eigenvalues,\nand one by the contracting eigenvalues) occur as the diffeomorphism ranges over\na topological conjugacy class? The purpose of this paper is to answer this\nquestion: all pairs of H\\\"{o}lder reduced cohomology classes occur.",
+    "published": "1991-05-12T00:00:00Z",
+    "updated": "1991-05-12T00:00:00Z",
+    "authors": [
+      "Elise E. Cawley"
+    ],
+    "link": "http://arxiv.org/abs/math/9201284v1"
+  },
+  {
+    "title": "Remarks on complemented subspaces of von-Neumann algebras",
+    "summary": "In this note we include two remarks about bounded ($\\underline{not}$\nnecessarily contractive) linear projections on a von Neumann-algebra. We show\nthat if $M$ is a von Neumann-subalgebra of $B(H)$ which is complemented in B(H)\nand isomorphic to $M \\otimes M$ then $M$ is injective (or equivalently $M$ is\ncontractively complemented). We do not know how to get rid of the second\nassumption on $M$. In the second part,we show that any complemented reflexive\nsubspace of a $C^*$- algebra is necessarily linearly isomorphic to a Hilbert\nspace.",
+    "published": "1991-05-31T20:02:35Z",
+    "updated": "1991-05-31T20:02:35Z",
+    "authors": [
+      "Gilles Pisier"
+    ],
+    "link": "http://arxiv.org/abs/math/9201227v1"
+  },
+  {
+    "title": "Interpolation between H^p spaces and non-commutative generalizations, I",
+    "summary": "We give an elementary proof that the $H^p$ spaces over the unit disc (or the\nupper half plane) are the interpolation spaces for the real method of\ninterpolation between $H^1$ and $H^\\infty$. This was originally proved by Peter\nJones. The proof uses only the boundedness of the Hilbert transform and the\nclassical factorisation of a function in $H^p$ as a product of two functions in\n$H^q$ and $H^r$ with $1/q+1/r=1/p$. This proof extends without any real extra\ndifficulty to the non-commutative setting and to several Banach space valued\nextensions of $H^p$ spaces. In particular, this proof easily extends to the\ncouple $H^{p_0}(\\ell_{q_0}),H^{p_1}(\\ell_{q_1})$, with $1\\leq p_0, p_1, q_0,\nq_1 \\leq \\infty$. In that situation, we prove that the real interpolation\nspaces and the K-functional are induced ( up to equivalence of norms ) by the\nsame objects for the couple $L_{p_0}(\\ell_{q_0}), L_{p_1}(\\ell_{q_1})$. In\nanother direction, let us denote by $C_p$ the space of all compact operators\n$x$ on Hilbert space such that $tr(|x|^p) <\\infty$. Let $T_p$ be the subspace\nof all upper triangular matrices relative to the canonical basis. If\n$p=\\infty$, $C_p$ is just the space of all compact operators. Our proof allows\nus to show for instance that the space $H^p(C_p)$ (resp. $T_p$) is the\ninterpolation space of parameter $(1/p,p)$ between $H^1(C_1)$ (resp. $T_1$) and\n$H^\\infty(C_\\infty)$ (resp. $T_\\i$). We also prove a similar result for the\ncomplex interpolation method. Moreover, extending a recent result of\nKaftal-Larson and Weiss, we prove that the distance to the subspace of upper\ntriangular matrices in $C_1$ and $C_\\infty$ can be essentially realized\nsimultaneously by the same element.",
+    "published": "1991-06-04T15:27:17Z",
+    "updated": "1991-06-04T15:27:17Z",
+    "authors": [
+      "Gilles Pisier"
+    ],
+    "link": "http://arxiv.org/abs/math/9201229v1"
+  },
+  {
+    "title": "Banach spaces with Property (w)",
+    "summary": "A Banach space E is said to have Property (w) if every (bounded linear)\noperator from E into E' is weakly compact. We give some interesting examples of\nJames type Banach spaces with Property (w). We also consider the passing of\nProperty (w) from E to C(K,E).",
+    "published": "1991-07-24T14:24:48Z",
+    "updated": "1991-07-24T14:24:48Z",
+    "authors": [
+      "Denny H. Leung"
+    ],
+    "link": "http://arxiv.org/abs/math/9201230v1"
+  },
+  {
+    "title": "The \"spectral\" decomposition for one-dimensional maps",
+    "summary": "We construct the \"spectral\" decomposition of the sets $\\bar{Per\\,f}$,\n$\\omega(f)=\\cup\\omega(x)$ and $\\Omega(f)$ for a continuous map $f$ of the\ninterval to itself. Several corollaries are obtained; the main ones describe\nthe generic properties of $f$-invariant measures, the structure of the set\n$\\Omega(f)\\setminus \\bar{Per\\,f}$ and the generic limit behavior of an orbit\nfor maps without wandering intervals. The \"spectral\" decomposition for\npiecewise-monotone maps is deduced from the Decomposition Theorem. Finally we\nexplain how to extend the results of the present paper for a continuous map of\na one-dimensional branched manifold into itself.",
+    "published": "1991-07-27T00:00:00Z",
+    "updated": "1991-07-27T00:00:00Z",
+    "authors": [
+      "Alexander M. Blokh"
+    ],
+    "link": "http://arxiv.org/abs/math/9201290v1"
+  },
+  {
+    "title": "Textbook examples of recursion",
+    "summary": "We discuss properties of recursive schemas related to McCarthy's ``91\nfunction'' and to Takeuchi's triple recursion. Several theorems are proposed as\ninteresting candidates for machine verification, and some intriguing open\nquestions are raised.",
+    "published": "1991-08-01T00:00:00Z",
+    "updated": "1991-08-01T00:00:00Z",
+    "authors": [
+      "Donald E. Knuth"
+    ],
+    "link": "http://arxiv.org/abs/cs/9301113v1"
+  },
+  {
+    "title": "The Fibonacci unimodal map",
+    "summary": "This paper will study topological, geometrical and measure-theoretical\nproperties of the real Fibonacci map. Our goal was to figure out if this type\nof recurrence really gives any pathological examples and to compare it with the\ninfinitely renormalizable patterns of recurrence studied by Sullivan. It turns\nout that the situation can be understood completely and is of quite regular\nnature. In particular, any Fibonacci map (with negative Schwarzian and\nnon-degenerate critical point) has an absolutely continuous invariant measure\n(so, we deal with a ``regular'' type of chaotic dynamics). It turns out also\nthat geometrical properties of the closure of the critical orbit are quite\ndifferent from those of the Feigenbaum map: its Hausdorff dimension is equal to\nzero and its geometry is not rigid but depends on one parameter.",
+    "published": "1991-08-12T00:00:00Z",
+    "updated": "1991-08-12T00:00:00Z",
+    "authors": [
+      "Mikhail Lyubich",
+      "John W. Milnor"
+    ],
+    "link": "http://arxiv.org/abs/math/9201291v1"
+  },
+  {
+    "title": "Ground Ring Of Two Dimensional String Theory",
+    "summary": "String theories with two dimensional space-time target spaces are\ncharacterized by the existence of a ``ground ring'' of operators of spin\n$(0,0)$. By understanding this ring, one can understand the symmetries of the\ntheory and illuminate the relation of the critical string theory to matrix\nmodels. The symmetry groups that arise are, roughly, the area preserving\ndiffeomorphisms of a two dimensional phase space that preserve the fermi\nsurface (of the matrix model) and the volume preserving diffeomorphisms of a\nthree dimensional cone. The three dimensions in question are the matrix\neigenvalue, its canonical momentum, and the time of the matrix model.",
+    "published": "1991-08-16T19:18:00Z",
+    "updated": "1991-08-16T19:18:00Z",
+    "authors": [
+      "Edward Witten"
+    ],
+    "link": "http://arxiv.org/abs/hep-th/9108004v1"
+  },
+  {
+    "title": "Infinite Quantum Group Symmetry of Fields in Massive 2D Quantum Field\n  Theory",
+    "summary": "Starting from a given S-matrix of an integrable quantum field theory in $1+1$\ndimensions, and knowledge of its on-shell quantum group symmetries, we describe\nhow to extend the symmetry to the space of fields. This is accomplished by\nintroducing an adjoint action of the symmetry generators on fields, and\nspecifying the form factors of descendents. The braiding relations of quantum\nfield multiplets is shown to be given by the universal $\\CR$-matrix. We develop\nin some detail the case of infinite dimensional Yangian symmetry. We show that\nthe quantum double of the Yangian is a Hopf algebra deformation of a level zero\nKac-Moody algebra that preserves its finite dimensional Lie subalgebra. The\nfields form infinite dimensional Verma-module representations; in particular\nthe energy-momentum tensor and isotopic current are in the same multiplet.",
+    "published": "1991-08-20T19:52:20Z",
+    "updated": "1991-08-20T19:52:20Z",
+    "authors": [
+      "A. LeCLair",
+      "F. Smirnov"
+    ],
+    "link": "http://arxiv.org/abs/hep-th/9108007v1"
+  },
+  {
+    "title": "Twisted Black p-Brane Solutions in String Theory",
+    "summary": "It has been shown that given a classical background in string theory which is\nindependent of $d$ of the space-time coordinates, we can generate other\nclassical backgrounds by $O(d)\\otimes O(d)$ transformation on the solution. We\nstudy the effect of this transformation on the known black $p$-brane solutions\nin string theory, and show how these transformations produce new classical\nsolutions labelled by extra continuous parameters and containing background\nantisymmetric tensor field.",
+    "published": "1991-08-21T17:49:00Z",
+    "updated": "1991-08-21T17:49:00Z",
+    "authors": [
+      "Ashoke Sen"
+    ],
+    "link": "http://arxiv.org/abs/hep-th/9108011v1"
+  },
+  {
+    "title": "Real Forms of Complex Quantum Anti de Sitter Algebra $U_q (Sp(4,C))$ and\n  their Contraction Schemes",
+    "summary": "We describe four types of inner involutions of the Cartan-Weyl basis\nproviding (for $ |q|=1$ and $q$ real) three types of real quantum Lie algebras:\n$U_{q}(O(3,2))$ (quantum D=4 anti-de-Sitter), $U_{q}(O(4,1))$ (quantum D=4\nde-Sitter) and $U_{q}(O(5))$. We give also two types of inner involutions of\nthe Cartan-Chevalley basis of $U_{q}(Sp(4;C))$ which can not be extended to\ninner involutions of the Cartan-Weyl basis. We outline twelve contraction\nschemes for quantum D=4 anti-de-Sitter algebra. All these contractions provide\nfour commuting translation generators, but only two (one for $ |q|=1$, second\nfor $q$ real) lead to the quantum \\po algebra with an undeformed space\nrotations O(3) subalgebra.",
+    "published": "1991-08-23T14:16:00Z",
+    "updated": "1991-08-23T14:16:00Z",
+    "authors": [
+      "J. Lukierski",
+      "A. Novicki",
+      "H. Ruegg"
+    ],
+    "link": "http://arxiv.org/abs/hep-th/9108018v1"
+  },
+  {
+    "title": "Superstring Compactification and Target Space Duality",
+    "summary": "This review talk focusses on some of the interesting developments in the area\nof superstring compactification that have occurred in the last couple of years.\nThese include the discovery that ``mirror symmetric\" pairs of Calabi--Yau\nspaces, with completely distinct geometries and topologies, correspond to a\nsingle (2,2) conformal field theory. Also, the concept of target-space duality,\noriginally discovered for toroidal compactification, is being extended to\nCalabi--Yau spaces. It also associates sets of geometrically distinct manifolds\nto a single conformal field theory.\n  A couple of other topics are presented very briefly. One concerns conceptual\nchallenges in reconciling gravity and quantum mechanics. It is suggested that\ncertain ``distasteful allegations\" associated with quantum gravity such as loss\nof quantum coherence, unpredictability of fundamental parameters of particle\nphysics, and paradoxical features of black holes are likely to be circumvented\nby string theory. Finally there is a brief discussion of the importance of\nsupersymmetry at the TeV scale, both from a practical point of view and as a\npotentially significant prediction of string theory.",
+    "published": "1991-08-26T23:30:33Z",
+    "updated": "1991-08-26T23:30:33Z",
+    "authors": [
+      "John H. Schwarz"
+    ],
+    "link": "http://arxiv.org/abs/hep-th/9108022v1"
+  },
+  {
+    "title": "Fock space resolutions of the Virasoro highest weight modules with c<=1",
+    "summary": "We extend Felder's construction of Fock space resolutions for the Virasoro\nminimal models to all irreducible modules with $c\\leq 1$. In particular, we\nprovide resolutions for the representations corresponding to the boundary and\nexterior of the Kac table.",
+    "published": "1991-08-27T11:44:52Z",
+    "updated": "1991-08-27T11:44:52Z",
+    "authors": [
+      "Peter Bouwknegt",
+      "Jim McCarthy",
+      "Krzysztof Pilch"
+    ],
+    "link": "http://arxiv.org/abs/hep-th/9108023v1"
+  },
+  {
+    "title": "On the S-matrix of the Sub-leading Magnetic Deformation of the\n  Tricritical Ising Model in Two Dimensions",
+    "summary": "We compute the $S$-matrix of the Tricritical Ising Model perturbed by the\nsubleading magnetic operator using Smirnov's RSOS reduction of the\nIzergin-Korepin model. The massive model contains kink excitations which\ninterpolate between two degenerate asymmetric vacua. As a consequence of the\ndifferent structure of the two vacua, the crossing symmetry is implemented in a\nnon-trivial way. We use finite-size techniques to compare our results with the\nnumerical data obtained by the Truncated Conformal Space Approach and find good\nagreement.",
+    "published": "1991-08-27T12:43:00Z",
+    "updated": "1991-08-27T12:43:00Z",
+    "authors": [
+      "F. Colomo",
+      "A. Koubek",
+      "G. Mussardo"
+    ],
+    "link": "http://arxiv.org/abs/hep-th/9108024v1"
+  },
+  {
+    "title": "World Sheet and Space Time Physics in Two Dimensional (Super) String\n  Theory",
+    "summary": "We show that tree level ``resonant'' $N$ tachyon scattering amplitudes, which\ndefine a sensible ``bulk'' S -- matrix in critical (super) string theory in any\ndimension, have a simple structure in two dimensional space time, due to\npartial decoupling of a certain infinite set of discrete states. We also argue\nthat the general (non resonant) amplitudes are determined by the resonant ones,\nand calculate them explicitly, finding an interesting analytic structure.\nFinally, we discuss the space time interpretation of our results.",
+    "published": "1991-09-04T13:33:49Z",
+    "updated": "1991-09-04T13:33:49Z",
+    "authors": [
+      "P. Di Francesco",
+      "D. Kutasov"
+    ],
+    "link": "http://arxiv.org/abs/hep-th/9109005v1"
+  }
+]
