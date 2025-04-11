@@ -1,7 +1,7 @@
 # ORBIT
-## Optimized Retrieval for Brilliant Interstellar Technologiessudo 
+## Optimized Retrieval for Brilliant Interstellar Technologies
 
-systemctl stop flaskapp.service
+sudo systemctl stop flaskapp.service
 
 sudo systemctl disable flaskapp.service
 
