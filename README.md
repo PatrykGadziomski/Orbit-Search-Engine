@@ -1,5 +1,9 @@
 # ORBIT
-## Optimized Retrieval for Beyond Interstellar Technologies 
+## Optimized Retrieval for Beyond Interstellar Technologies
+
+![status](https://img.shields.io/badge/status-in%20development-yellow)
+
+---
 
 sudo systemctl stop flaskapp.service
 
