@@ -3,7 +3,6 @@ import xml.etree.ElementTree as ET
 import json
 
 results = []
-
 index_id = 0
 
 for start in range(0, 2000, 10):
