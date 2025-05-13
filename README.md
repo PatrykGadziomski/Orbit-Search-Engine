@@ -12,3 +12,8 @@ sudo systemctl disable flaskapp.service
 sudo systemctl start flaskapp.service
 
 sudo systemctl enable flaskapp.service
+
+
+
+TODO:
+- Not every entry from arXiv has a DOI
