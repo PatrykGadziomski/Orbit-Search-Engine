@@ -1,5 +1,4 @@
-import urllib.parse
-import urllib.request
+import urllib
 import xml.etree.ElementTree as ET
 import json
 from typing import Dict
@@ -86,9 +85,9 @@ def access_openalex_data(data):
                     match = response.json()
 
                     paper = {
-                        'arxiv_id': arxiv_id,
+                        'arxiv_id': paper['arxiv_id'],
                         'doi': paper['doi'],
-                        'title': title,
+                        'title': paper['title'],
                         'summary': paper['summary'],
                         'published': paper['published'],
                         'updated': paper['updated'],
@@ -111,7 +110,7 @@ def access_openalex_data(data):
             except Exception as e:
                     print(f"Fehler bei DOI {paper['doi']}: {e}")
 
-        elif arxiv_id:
+        elif arxiv_id: # FIX: 'module' is not callable
             encoded_arxiv_id = urllib.parse.quote(paper['arxiv_id'])
             url = f"https://api.openalex.org/works/arxiv:{encoded_arxiv_id}"
             try:
@@ -121,8 +120,8 @@ def access_openalex_data(data):
 
                     paper = {
                         'arxiv_id': paper['arxiv_id'],
-                        'doi': doi,
-                        'title': title,
+                        'doi': paper['doi'],
+                        'title': paper['title'],
                         'summary': paper['summary'],
                         'published': paper['published'],
                         'updated': paper['updated'],
@@ -147,7 +146,7 @@ def access_openalex_data(data):
 
         elif title:
             url = 'https://api.openalex.org/works'
-            params = {'filter': f'title.search:"{paper['title']}"'}
+            params = {'filter': f'title.search:"{paper["title"]}"'}
 
             try:
                 response = requests.get(url=url, params=params, timeout=10)
@@ -155,8 +154,8 @@ def access_openalex_data(data):
                     match = response.json()
 
                     paper = {
-                        'arxiv_id': arxiv_id,
-                        'doi': doi,
+                        'arxiv_id': paper['arxiv_id'],
+                        'doi': paper['doi'],
                         'title': paper['title'],
                         'summary': paper['summary'],
                         'published': paper['published'],
