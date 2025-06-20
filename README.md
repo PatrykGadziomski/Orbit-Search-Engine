@@ -140,6 +140,7 @@ You can combine the wildcards.
   - language
   - journal
   - type
+
 You can combine multiple facets.
 
 ## Contact & Collaboration
