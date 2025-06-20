@@ -1,22 +1,6 @@
 import requests
 import json
 
-# def add_spellcheck_field(SOLR_URL):
-#     payload = {
-#         "add-field": {
-#             "name": "spellcheck_base",
-#             "type": "orbit_text_general",
-#             "stored": False,
-#             "indexed": True,
-#             "multiValued": True
-#         }
-#     }
-#     response = requests.post(f"{SOLR_URL}/schema/fieldtypes", json=payload)
-#     if response.status_code == 200:
-#         print(f"Indexfeld 'spellcheck_base' erfolgreich hinzugefügt.")
-#     else:
-#         print(f"Fehler beim Hinzufügen des Indexfelds 'spellcheck_base': {response.status_code} - {response.text}")
-
 
 def index_content(SOLR_URL):
 
@@ -33,7 +17,6 @@ def index_content(SOLR_URL):
             cited_by_count = file['cited_by_count']
             
             doc = {
-                "id": arxiv_id,
                 "arxiv_id": arxiv_id,
                 "openalex_id": openalex_id,
                 "title": title,

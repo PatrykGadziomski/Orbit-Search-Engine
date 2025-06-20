@@ -3,24 +3,24 @@ import requests
 
 FIELD_TYPES = [
     {
-        "name": "orbit_string",
+        "name": "string",
         "class": "solr.StrField",
         "sortMissingLast": True,
     },
     {
-        "name": "orbit_boolean",
+        "name": "boolean",
         "class": "solr.BoolField",
     },
     {
-        "name": "orbit_pint",
+        "name": "pint",
         "class": "solr.IntPointField",
     },
     {
-        "name": "orbit_date",
+        "name": "date",
         "class": "solr.DatePointField", 
     },
     {
-        "name": "orbit_text_general",
+        "name": "text_general",
         "class": "solr.TextField",
         "positionIncrementGap": "100", # verhindert, dass multiValued-Feldwerte wie ein einziger Textblock behandelt werden
         "analyzer": {
@@ -29,7 +29,7 @@ FIELD_TYPES = [
         },
     },
     {
-        "name": "orbit_text_custom",
+        "name": "text_custom",
         "class": "solr.TextField",
         "positionIncrementGap": "100", # verhindert, dass multiValued-Feldwerte wie ein einziger Textblock behandelt werden
         "indexAnalyzer": {
@@ -52,36 +52,36 @@ FIELD_TYPES = [
 
 
 FIELDS = [
-    {"name": "arxiv_id", "type": "orbit_string", "stored": True, "indexed": True, "required": True},
-    {"name": "openalex_id", "type": "orbit_string", "stored": True, "indexed": True, "required": True},
-    {"name": "doi", "type": "orbit_string", "stored": True, "indexed": True, "required": False},
-    {"name": "title", "type": "orbit_text_general", "stored": True, "indexed": True},
-    {"name": "summary", "type": "orbit_text_general", "stored": True, "indexed": True, "multiValued": True},
-    {"name": "published", "type": "orbit_date", "stored": True, "indexed": True, "docValues": True},
-    {"name": "updated", "type": "orbit_date", "stored": True, "indexed": True, "docValues": True},
-    {"name": "pdf_link", "type": "orbit_string", "stored": True, "indexed": True},
-    {"name": "fulltext", "type": "orbit_text_custom", "stored": False, "indexed": True},
-    {"name": "cited_by_count", "type": "orbit_pint", "stored": True, "indexed": False, "docValues": True},
-    {"name": "type", "type": "orbit_string", "stored": True, "indexed": True, "docValues": True},
-    {"name": "referenced_works", "type": "orbit_text_general", "stored": True, "indexed": True, "multiValued": True},
-    {"name": "related_works", "type": "orbit_text_general", "stored": True, "indexed": True, "multiValued": True},
-    {"name": "grants", "type": "orbit_string", "stored": True, "indexed": True, "docValues": True},
-    {"name": "landing_page_url", "type": "orbit_text_general", "stored": True, "indexed": True},
-    {"name": "author_orcid", "type": "orbit_text_general", "stored": True, "indexed": True, "multiValued": True},
-    {"name": "volume", "type": "orbit_string", "stored": True, "indexed": True},
-    {"name": "issue", "type": "orbit_string", "stored": True, "indexed": True},
-    {"name": "first_page", "type": "orbit_string", "stored": True, "indexed": True},
-    {"name": "last_page", "type": "orbit_string", "stored": True, "indexed": True},
+    {"name": "arxiv_id", "type": "string", "stored": True, "indexed": True, "required": True},
+    {"name": "openalex_id", "type": "string", "stored": True, "indexed": True, "required": True},
+    {"name": "doi", "type": "string", "stored": True, "indexed": True, "required": False},
+    {"name": "title", "type": "text_general", "stored": True, "indexed": True},
+    {"name": "summary", "type": "text_general", "stored": True, "indexed": True, "multiValued": True},
+    {"name": "published", "type": "date", "stored": True, "indexed": True, "docValues": True},
+    {"name": "updated", "type": "date", "stored": True, "indexed": True, "docValues": True},
+    {"name": "pdf_link", "type": "string", "stored": True, "indexed": True},
+    {"name": "fulltext", "type": "text_custom", "stored": False, "indexed": True},
+    {"name": "cited_by_count", "type": "pint", "stored": True, "indexed": False, "docValues": True},
+    {"name": "type", "type": "string", "stored": True, "indexed": True, "docValues": True},
+    {"name": "referenced_works", "type": "text_general", "stored": True, "indexed": True, "multiValued": True},
+    {"name": "related_works", "type": "text_general", "stored": True, "indexed": True, "multiValued": True},
+    {"name": "grants", "type": "string", "stored": True, "indexed": True, "docValues": True},
+    {"name": "landing_page_url", "type": "text_general", "stored": True, "indexed": True},
+    {"name": "author_orcid", "type": "text_general", "stored": True, "indexed": True, "multiValued": True},
+    {"name": "volume", "type": "string", "stored": True, "indexed": True},
+    {"name": "issue", "type": "string", "stored": True, "indexed": True},
+    {"name": "first_page", "type": "string", "stored": True, "indexed": True},
+    {"name": "last_page", "type": "string", "stored": True, "indexed": True},
 
-    {"name": "journal", "type": "orbit_string", "stored": True, "indexed": True, "multiValued": "true", "docValues": True},
-    {"name": "concepts", "type": "orbit_string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
-    {"name": "author_names", "type": "orbit_string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
-    {"name": "open_access", "type": "orbit_boolean", "stored": True, "indexed": False, "multiValued": True, "docValues": True},
-    {"name": "language", "type": "orbit_string", "stored": True, "indexed": True, "multiValued": True,"docValues": True},
-    {"name": "institutions", "type": "orbit_string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
-    {"name": "keywords", "type": "orbit_string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
+    {"name": "journal", "type": "string", "stored": True, "indexed": True, "multiValued": "true", "docValues": True},
+    {"name": "concepts", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
+    {"name": "author_names", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
+    {"name": "open_access", "type": "boolean", "stored": True, "indexed": False, "multiValued": True, "docValues": True},
+    {"name": "language", "type": "string", "stored": True, "indexed": True, "multiValued": True,"docValues": True},
+    {"name": "institutions", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
+    {"name": "keywords", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
 
-    {"name": "spellcheck_base", "type": "orbit_text_general", "stored": False, "indexed": True, "multiValued": True}
+    {"name": "spellcheck_base", "type": "text_general", "stored": False, "indexed": True, "multiValued": True}
 ]
 
 def add_field_type(type_def, SOLR_URL):
@@ -112,4 +112,16 @@ def add_field(field_def, SOLR_URL):
         print(f"Index-Feld '{field_def['name']}' existiert bereits.")
     else:
         print(f"Fehler bei Feld '{field_def['name']}': {response.text}")
+
+
+def set_unique_key(col, SOLR_URL):
+    payload = {
+        "set-unique-key": col
+    }
+    response = requests.post(f"{SOLR_URL}/schema", json=payload)
+
+    if response.status_code == 200:
+        print(f"Index-Feld {col} erfolgreich als uniquekey jesetzt.")
+    else:
+        print(f"Fehler bei Feld '{col}': {response.text}")
 
