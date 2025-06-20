@@ -1,0 +1,6 @@
+solr_host: "localhost"
+solr_port: "8983"
+solr_core: "orbit"
+arxiv_path: "data/arxiv_papers.jsonl"
+arxiv_openalex_path: "data/enriched_papers.jsonl"
+arxiv_openalex_clean_path: "data/enriched_clean_papers.json"
