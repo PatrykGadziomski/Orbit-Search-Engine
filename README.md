@@ -104,7 +104,7 @@ Add to ``requestHandler`` in ``solrconfig.xml``:
 ### Data acquisition
 During data acquisition, scientific papers are collected from **arXiv.org** using their public API and enriched with additional metadata from **OpenAlex.org**, also via API access.
 The process can be started by running the script ``index_main.py`` with the command ``python index_main.py``. It will automatically create the necessary folders and files for indexing.
-Please make sure to adjust the file paths in the script according to your local setup and preferences.
+Please make sure to adjust the file paths in the ``config.yml`` according to your local setup and preferences.
 
 **Important**: The amount of data depends on the parameters set in ``./orbit_utils/data_access.py``: ``main_access()`` (See comment).
 
@@ -116,7 +116,7 @@ Please make sure to adjust the file paths in the script according to your local 
 Indexing is also handled via ``index_main.py``.
 The collected data is indexed based on the Solr schema defined in ``orbit_utils/create_solr_schema.py``.
 
-**Important**: Don’t forget to set the correct Solr core name in ``index_main.py`` to ensure the data is indexed into the intended core.
+**Important**: Don’t forget to set the correct Solr core name in ``config.yml`` to ensure the data is indexed into the intended core.
 
 ### Start the Web App
 The web application can be started using the ``app.py`` file located in the ``ORBIT_SE`` folder.
