@@ -1,11 +1,15 @@
 from flask import Flask, request, render_template
+from orbit_utils.orbit_config_loader import load_config
 import pysolr
 import math
+
+config = load_config()
+
 app = Flask(__name__)
 
-solr_host = "localhost"
-solr_port = "8983"
-solr_core = "orbit"
+solr_host = config['solr_host']
+solr_port = config['solr_port']
+solr_core = config['solr_core']
 
 solr_url = f"http://{solr_host}:{solr_port}/solr/{solr_core}"
 
