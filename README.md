@@ -12,14 +12,6 @@
 
 ---
 
-sudo systemctl stop flaskapp.service
-
-sudo systemctl disable flaskapp.service
-
-sudo systemctl start flaskapp.service
-
-sudo systemctl enable flaskapp.service
-
 
 
 docker exec -it solr-server solr create_core -c orbit
