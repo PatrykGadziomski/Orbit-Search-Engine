@@ -131,6 +131,7 @@ After starting the web app and navigating to your localhost in your browser:
   - examnple*
   - *example
   - exam*le
+
 You can combine the wildcards.
 
 - **Phrase search**: You can use the ""-marks to search for the specific word like "AI" or "Explainable AI"
@@ -140,7 +141,6 @@ You can combine the wildcards.
   - language
   - journal
   - type
-
 
 You can combine multiple facets.
 
