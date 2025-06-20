@@ -30,6 +30,5 @@ docker exec -it solr-server solr config -c orbit --action set-user-property --pr
 <str name="spellcheck">true</str>
 
 TODO:
-- Ich habe im index dupmlikate wegen dem spellcheck --> Das Schema nochmal anschauen
-- Faccetieren ist visuell da aber man kann damit nichts amchen.
 - Doku/ReadMe schreiben
+- die namen im schema und json einheitlich
