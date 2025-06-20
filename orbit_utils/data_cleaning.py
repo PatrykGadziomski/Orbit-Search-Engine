@@ -49,13 +49,7 @@ def extract_landing_page(col_dict):
 
     
 def expand_dict_columns(df, col_name, drop_original=True):
-    """
-    Nimmt ein DataFrame df und eine Spalte col_name mit dicts,
-    wandelt den Inhalt in separate Spalten um.
-    Gibt das erweiterte DataFrame zurück.
-    """
     dict_df = pd.DataFrame(df[col_name].tolist(), index=df.index)
-    
     df_expanded = pd.concat([df, dict_df], axis=1)
     
     if drop_original:

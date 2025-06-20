@@ -12,10 +12,8 @@ def index_solr_docs(docs, SOLR_URL):
         summary = doc.get("summary", "")
         fulltext = doc.get("full_text", "")
         
-        # Spellcheck-Feld hinzufügen
         doc["spellcheck_base"] = [title, summary, fulltext]
 
-        # Optional: sicherstellen, dass "id" gesetzt ist (z. B. auf arxiv_id)
         if "id" not in doc and "arxiv_id" in doc:
             doc["id"] = doc["arxiv_id"]
 

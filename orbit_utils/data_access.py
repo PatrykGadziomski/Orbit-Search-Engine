@@ -116,14 +116,14 @@ def enrich_paper(paper, match):
         'pdf_link': paper.get('pdf_link'),
         'full_text': paper.get('full_text'),
 
-        # OpenAlex-Daten
+        # OpenAlex-Data
         'openalex_id': match.get('id'),
         'concepts': match.get('concepts'),
         'cited_by_count': match.get('cited_by_count'),
         'host_venue': match.get('host_venue', {}).get('display_name'),
         'open_access': match.get('open_access', {}).get('is_oa'),
 
-        # Ergänzte Felder
+        # Enriched Data
         'type': match.get('type'),
         'language': match.get('language'),
         'host_venue_license': match.get('host_venue', {}).get('license'),
@@ -156,27 +156,27 @@ def access_openalex_data(data, file_path):
     for paper in tqdm(data):
         match = None
 
-        # 1. Suche via DOI
+        # 1. Search via DOI
         if paper.get('doi'):
             encoded_doi = urllib.parse.quote(f"https://doi.org/{paper['doi']}")
             url = f"https://api.openalex.org/works/{encoded_doi}"
             match = fetch_openalex_data(url)
 
-        # 2. Suche via ArXiv-ID
+        # 2. Search via ArXiv-ID
         if not match and paper.get('arxiv_id'):
             arxiv_id = urllib.parse.quote(paper['arxiv_id'].replace("http://arxiv.org/abs/", ""))
             url = f"https://api.openalex.org/works/arxiv:{arxiv_id}"
             match = fetch_openalex_data(url)
 
-        # 3. Suche via Titel
+        # 3. Search via Title
         if not match and paper.get('title'):
             url = 'https://api.openalex.org/works'
             params = {'filter': f'title.search:"{paper["title"]}"'}
             result = fetch_openalex_data(url, params)
             if result and result.get('results'):
-                match = result['results'][0]  # Nimm den ersten Treffer
+                match = result['results'][0]
 
-        # Ergebnis speichern, wenn vorhanden
+        # Save results, if existing
         if match:
             enriched = enrich_paper(paper, match)
             append_to_jsonl(file_path=file_path, record=enriched)

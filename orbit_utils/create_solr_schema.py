@@ -27,7 +27,7 @@ FIELD_TYPES = [
     {
         "name": "text_general",
         "class": "solr.TextField",
-        "positionIncrementGap": "100", # verhindert, dass multiValued-Feldwerte wie ein einziger Textblock behandelt werden
+        "positionIncrementGap": "100",
         "analyzer": {
             "tokenizer": {"class": "solr.StandardTokenizerFactory"},
             "filters": [{"class": "solr.LowerCaseFilterFactory"}],
@@ -36,7 +36,7 @@ FIELD_TYPES = [
     {
         "name": "text_custom",
         "class": "solr.TextField",
-        "positionIncrementGap": "100", # verhindert, dass multiValued-Feldwerte wie ein einziger Textblock behandelt werden
+        "positionIncrementGap": "100",
         "indexAnalyzer": {
             "tokenizer": {"class": "solr.StandardTokenizerFactory"},
             "filters": [
@@ -77,7 +77,6 @@ FIELDS = [
     {"name": "issue", "type": "string", "stored": True, "indexed": True},
     {"name": "first_page", "type": "string", "stored": True, "indexed": True},
     {"name": "last_page", "type": "string", "stored": True, "indexed": True},
-
     {"name": "journal", "type": "string", "stored": True, "indexed": True, "multiValued": "true", "docValues": True},
     {"name": "concepts", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
     {"name": "author_names", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
@@ -85,19 +84,15 @@ FIELDS = [
     {"name": "language", "type": "string", "stored": True, "indexed": True, "multiValued": True,"docValues": True},
     {"name": "institutions", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
     {"name": "keywords", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
-
     {"name": "spellcheck_base", "type": "text_general", "stored": False, "indexed": True, "multiValued": True}
 ]
 
-def add_field_type(type_def, SOLR_URL):
-    # vorhandene Feldtypen können nicht überschrieben werden, daher
-    # zuerst den Feldtyp löschen, falls er existiert    
+def add_field_type(type_def, SOLR_URL):   
     delete_payload = {"delete-field-type": {"name": type_def["name"]}}
     delete_response = requests.post(SOLR_URL, json=delete_payload)
     if delete_response.status_code == 200:
         print(f"Feldtyp '{type_def['name']}' erfolgreich gelöscht.")
     
-    # jetzt können wir den Feldtyp hinzufügen
     payload = {"add-field-type": type_def}
     response = requests.post(SOLR_URL, json=payload)
     if response.status_code == 200:
@@ -117,15 +112,3 @@ def add_field(field_def, SOLR_URL):
         print(f"Index-Feld '{field_def['name']}' existiert bereits.")
     else:
         print(f"Fehler bei Feld '{field_def['name']}': {response.text}")
-
-
-def set_unique_key(col, SOLR_URL):
-    payload = {
-        "set-unique-key": col
-    }
-    response = requests.post(f"{SOLR_URL}/schema", json=payload)
-
-    if response.status_code == 200:
-        print(f"Index-Feld {col} erfolgreich als uniquekey jesetzt.")
-    else:
-        print(f"Fehler bei Feld '{col}': {response.text}")
