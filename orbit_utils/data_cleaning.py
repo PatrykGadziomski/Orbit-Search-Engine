@@ -1,8 +1,3 @@
-"""
-Author: Patryk Gadziomski
-Updated: 19.06.2025
-"""
-
 import pandas as pd
 import re
 
@@ -92,4 +87,3 @@ def clean_cols(data, file_path):
     data = expand_dict_columns(data, 'biblio')
 
     data.to_json(file_path, orient='records', force_ascii=False)
-

@@ -190,4 +190,3 @@ def main_access(arxiv_file_path, eriched_file_path):
     data = read_jsonl(arxiv_file_path)
     print('Start accessing OpenAlex Data.') 
     access_openalex_data(data=data, file_path=eriched_file_path)
-

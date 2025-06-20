@@ -17,6 +17,7 @@ def spellcheck(query):
     params = {
         'q': query,
         'spellcheck': 'true',
+        # 'spellcheck.qf': 'spellcheck_base',
         'spellcheck.count': 5,
         'wt': 'json'
     }
@@ -49,6 +50,7 @@ def search():
     suggested = request.args.get("suggested", "").lower() == "true"
     page = int(request.args.get("page", 1)) # Page-Nummer aus den URL-Parametern
     results = []
+    solr_filters = []
     total_pages = 1
     num_of_hits = 0
 
@@ -56,16 +58,22 @@ def search():
         query = "*:*"  # Alle Dokumente zurückgeben: Wildcardsuche
 
     if query:
+        for key, value in request.args.items():
+            if key.startswith("filter_"):
+                field = key[7:]  # Entfernt "filter_"
+                solr_filters.append(f"{field}:\"{value}\"")
+
         params = {
             "qf": "title^5 author_names^3 summary^2 fulltext concepts spellcheck_base^1", # Keywordsuche
             "defType": "edismax", # erweiterte DisMax-Suche            
             "fl": "*,score", # Felder, die zurückgegeben werden
+            "fq": solr_filters,
             "debugQuery": "true",
             "bf": "log(cited_by_count)^2",
             "start": (page - 1) * 10, # Start-Offset für die Paginierung
             "rows": 10,
             "facet": "true",
-            "facet.field": ["concepts", "keywords"],
+            "facet.field": ["concepts", "open_access", "language", "journal", "type"],
             "facet.limit": 10,
             "facet.mincount": 1
             }
