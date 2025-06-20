@@ -2,7 +2,6 @@ from orbit_utils.data_access import main_access
 from orbit_utils.data_cleaning import clean_cols
 from orbit_utils.create_solr_schema import FIELD_TYPES, add_field_type, FIELDS, add_field
 from orbit_utils.index_orbit_sample import index_solr_docs
-from orbit_utils.add_speelcheck import index_content
 import pandas as pd
 import json
 
@@ -37,4 +36,4 @@ if __name__ == "__main__":
     index_solr_docs(solr_docs, SOLR_URL_COMMIT)
 
     # 5. Add Spellcheck
-    index_content(SOLR_URL)
+    # index_content(SOLR_URL)
