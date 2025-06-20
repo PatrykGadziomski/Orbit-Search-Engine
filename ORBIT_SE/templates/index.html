@@ -67,8 +67,8 @@
 
       <div class="results-list">
         {% for result in results %}
-        <div class="book-entry">
-          <div class="book-meta">
+        <div class="paper-entry">
+          <div class="paper-meta">
             <h5>({{ loop.index + 10 * (page - 1) }}) {{ result.title[0] }}</h5>
             <p>{{ "; ".join(result.authorships_names[:2]) }}; et al.</p>
             <p>
