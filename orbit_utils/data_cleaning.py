@@ -1,3 +1,8 @@
+"""
+Author: Patryk Gadziomski
+Updated: 19.06.2025
+"""
+
 import pandas as pd
 import re
 
