@@ -7,17 +7,23 @@ from orbit_utils.data_access import main_access
 from orbit_utils.data_cleaning import clean_cols
 from orbit_utils.create_solr_schema import FIELD_TYPES, add_field_type, FIELDS, add_field
 from orbit_utils.index_orbit import index_solr_docs
+from orbit_utils.orbit_config_loader import load_config
 import pandas as pd
 import json
 
-SOLR_CORE_NAME = "orbit"
-SOLR_URL_SCHEMA = f"http://localhost:8983/solr/{SOLR_CORE_NAME}/schema"
-SOLR_URL_COMMIT = f"http://localhost:8983/solr/{SOLR_CORE_NAME}/update?commit=true"
-SOLR_URL = f"http://localhost:8983/solr/{SOLR_CORE_NAME}"
+config = load_config()
 
-arxiv_path = r'data/arxiv_papers.jsonl'
-arxiv_openalex_path = r'data/enriched_papers.jsonl'
-arxiv_openalex_clean_path = r'data/enriched_clean_papers.json'
+SOLR_CORE_NAME = config['solr_core']
+SOLR_PORT = config['solr_port']
+SOLR_HOST = config['solr_host']
+
+SOLR_URL_SCHEMA = f"http://{SOLR_HOST}:{SOLR_PORT}/solr/{SOLR_CORE_NAME}/schema"
+SOLR_URL_COMMIT = f"http://{SOLR_HOST}:{SOLR_PORT}/solr/{SOLR_CORE_NAME}/update?commit=true"
+SOLR_URL = f"http://{SOLR_HOST}:{SOLR_PORT}/solr/{SOLR_CORE_NAME}"
+
+arxiv_path = config['arxiv_path']
+arxiv_openalex_path = config['arxiv_openalex_path']
+arxiv_openalex_clean_path = config['arxiv_openalex_clean_path']
 
 
 def load_data(file_path):
@@ -29,7 +35,7 @@ def load_data(file_path):
 if __name__ == "__main__":
     ### -- !!! The data download can take a while !!! -- Please use the data in ./data/ for first tests
     # 1. Aquisite data via arxiv and openalex APIs
-    main_access(arxiv_path, arxiv_openalex_path) # Run Only for new data aquisation
+    main_access(arxiv_path, arxiv_openalex_path) # Run Only for new data aquisition
 
     # 2. Clean and preprocess data
     solr_docs = pd.read_json(arxiv_openalex_path, orient='records', lines=True)
