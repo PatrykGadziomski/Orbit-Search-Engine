@@ -1,0 +1,68 @@
+* {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.index-body {
+    margin: auto;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+html, body {
+    height: 100%;      /* Setzt die Höhe von html und body auf 100% */
+    margin: 0;         /* Entfernt Standard-Margen */
+    padding: 0;        /* Entfernt Standard-Abstände */
+    overflow-x: hidden; /* Verhindert horizontales Scrollen, falls nötig */
+}
+
+.main-h { 
+    font-size: 150px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow:
+    2px 2px 0 black,   /* schwarzer Schatten nach rechts und unten */
+    -2px -2px 0 black, /* schwarzer Schatten nach links und oben */
+    2px -2px 0 black,  /* schwarzer Schatten nach oben und rechts */
+    -2px 2px 0 black;  /* schwarzer Schatten nach unten und links */
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-control {
+    padding: 10px;
+    width: 700px;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid black;
+}
+
+.form-submit {
+    padding: 10px;
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid black;
+}
+
+.form-submit:hover {
+    cursor: pointer;
+}
+
+.results-search {
+    padding: 20px;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+tr {
+    height: 50px;
+}
