@@ -90,7 +90,7 @@ docker exec -it solr-server solr config -c orbit --action set-user-property --pr
 ```
 
 ### Important Schema-Steup
-Has to be added to activate spellchecking.
+Has to be added to the ``solrconfig.xml`` of your core to activate spellchecking.
 ```xml
 <str name="field">spellcheck_base</str>
 <str name="spellcheck">true</str>
