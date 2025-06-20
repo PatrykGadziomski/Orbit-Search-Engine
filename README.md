@@ -120,10 +120,30 @@ The collected data is indexed based on the Solr schema defined in ``orbit_utils/
 
 ### Start the Web App
 The web application can be started using the ``app.py`` file located in the ``ORBIT_SE`` folder.
-First, navigate to the folder by running ``cd ORBIT_SE``, then start the app with the command ``python app.py``.
+First, make sure you in the main directory of the project, then start the app with the command ``python -m ORBIT_SE.app``.
+Then navigate to ``http://127.0.0.1:5000`` in your borwser and start searching!
+
+## How to search in ORBIT?
+After starting the web app and navigating to your localhost in your browser:
+
+- **Keyword search**: Type any search terms of your choice
+- **Wildcard search**: You can use the wildcard symbol ``*`` for search as follows:
+  - examnple*
+  - *example
+  - exam*le
+You can combine the wildcards.
+
+- **Phrase search**: You can use the ""-marks to search for the specific word like "AI" or "Explainable AI"
+- **Faceted search**: After searchin a term you can select from the following facets to filter the results:
+  - concepts
+  - open access
+  - language
+  - journal
+  - type
+You can combine multiple facets.
 
 ## Contact & Collaboration
-For questions, feedback, or contributions to the project, please reach out to the team at me, the developers
+For questions, feedback, or contributions to the project, please reach out to me, the developer.
 
 ---
 
