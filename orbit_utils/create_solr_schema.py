@@ -1,3 +1,8 @@
+"""
+Author: Patryk Gadziomski
+Updated: 20.06.2025
+"""
+
 import requests
 
 
@@ -124,4 +129,7 @@ def set_unique_key(col, SOLR_URL):
         print(f"Index-Feld {col} erfolgreich als uniquekey jesetzt.")
     else:
         print(f"Fehler bei Feld '{col}': {response.text}")
+<<<<<<< HEAD
 
+=======
+>>>>>>> V1_HdM

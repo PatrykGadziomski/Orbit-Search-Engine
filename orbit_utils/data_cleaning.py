@@ -1,3 +1,8 @@
+"""
+Author: Patryk Gadziomski
+Updated: 19.06.2025
+"""
+
 import pandas as pd
 import re
 
@@ -49,13 +54,10 @@ def expand_dict_columns(df, col_name, drop_original=True):
     wandelt den Inhalt in separate Spalten um.
     Gibt das erweiterte DataFrame zurück.
     """
-    # 1. neue DataFrame mit allen Dict-Feldern
     dict_df = pd.DataFrame(df[col_name].tolist(), index=df.index)
     
-    # 2. hänge neue Spalten an
     df_expanded = pd.concat([df, dict_df], axis=1)
     
-    # 3. optional: Original-Spalte entfernen
     if drop_original:
         df_expanded = df_expanded.drop(columns=[col_name])
     
@@ -87,4 +89,3 @@ def clean_cols(data, file_path):
     data = expand_dict_columns(data, 'biblio')
 
     data.to_json(file_path, orient='records', force_ascii=False)
-

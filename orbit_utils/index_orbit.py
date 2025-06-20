@@ -1,3 +1,8 @@
+"""
+Author: Patryk Gadziomski
+Updated: 20.06.2025
+"""
+
 import requests
 
 def index_solr_docs(docs, SOLR_URL):
@@ -23,5 +28,3 @@ def index_solr_docs(docs, SOLR_URL):
         print(f"Unexpected Error {resp.status_code} - {resp.text}")
     else:
         print(f"{len(enriched_docs)} Dokumente erfolgreich indexiert.")
-
-
