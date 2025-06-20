@@ -135,7 +135,7 @@ After starting the web app and navigating to your localhost in your browser:
 You can combine the wildcards.
 
 - **Phrase search**: You can use the ""-marks to search for the specific word like "AI" or "Explainable AI"
-- **Faceted search**: After searchin a term you can select from the following facets to filter the results:
+- **Faceted search**: After searching a term you can select from the following facets to filter the results:
   - concepts
   - open access
   - language
