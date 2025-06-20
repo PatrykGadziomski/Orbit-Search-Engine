@@ -56,9 +56,29 @@ It is tailored to support research workflows and discovery in these high-impact,
 - Identifying similar documents (More Like This feature)
 - Autocompletion
 - Highlighting query terms in the search result preview
+- Frontend development
 ---
 
 ## Installation & Setup
+
+### Create Venv
+On Linux/macOS:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+On Windows:
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Install required packages
+```bash
+pip install -r requirements.txt
+```
+
 ### Solr Core Initialization
 ```bash
 docker exec -it solr-server solr create_core -c orbit
