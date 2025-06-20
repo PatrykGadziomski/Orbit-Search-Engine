@@ -101,11 +101,6 @@ Add to ``requestHandler`` in ``solrconfig.xml``:
 <str name="spellcheck">true</str>
 ```
 
-<<<<<<< HEAD
-TODO:
-- Doku/ReadMe schreiben
-- die namen im schema und json einheitlich
-=======
 ### Data acquisition
 During data acquisition, scientific papers are collected from **arXiv.org** using their public API and enriched with additional metadata from **OpenAlex.org**, also via API access.
 The process can be started by running the script ``index_main.py`` with the command ``python index_main.py``. It will automatically create the necessary folders and files for indexing.
