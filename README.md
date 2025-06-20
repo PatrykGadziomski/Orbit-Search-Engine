@@ -144,6 +144,8 @@ You can combine the wildcards.
 
 You can combine multiple facets.
 
+**Spellchecking**: You will get suggestions for terms, if you term lead to no results. (Tested with "amelie", still have to improve this function)
+
 ## Contact & Collaboration
 For questions, feedback, or contributions to the project, please reach out to me, the developer.
 
