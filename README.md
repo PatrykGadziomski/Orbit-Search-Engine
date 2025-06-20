@@ -1,6 +1,13 @@
 # ORBIT
 ## Optimized Retrieval for Beyond Interstellar Technologies
 
+<figure>
+    <img 
+    src="./imgs/ORBIT_banner.png" 
+    alt='HdM X Stuttgart University'
+    >
+</figure>
+
 ![status](https://img.shields.io/badge/status-in%20development-yellow)
 
 ---
