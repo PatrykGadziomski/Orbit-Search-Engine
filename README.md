@@ -34,7 +34,7 @@ Contact: [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=
 
 ## Project Overview
 
-**ORBIT** (Optimized Retrieval for Beyond Interstellar Technologies) is a search and retrieval system built on **Apache Solr**, designed to support advanced indexing and querying functionality for data scenarios.
+**ORBIT** (Optimized Retrieval for Beyond Interstellar Technologies) is a search and retrieval system built on **Apache Solr**, designed to support advanced indexing and querying functionality for space/AI scenarios.
 
 ORBIT specializes in indexing and retrieving **scientific papers** in the field of **intelligent systems for space exploration and Earth observation**.  
 It is tailored to support research workflows and discovery in these high-impact, data-intensive domains.
