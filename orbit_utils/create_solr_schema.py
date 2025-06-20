@@ -1,3 +1,8 @@
+"""
+Author: Patryk Gadziomski
+Updated: 20.06.2025
+"""
+
 import requests
 
 
