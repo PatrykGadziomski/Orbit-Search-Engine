@@ -25,7 +25,7 @@ def remove_likely_table_blocks(text):
     return text
 
 
-def remove_number_only_lines(text):
+def remove_number_only_lines(text): # Wird da shier benutzt?
     lines = text.split('\n')
     cleaned_lines = []
     pattern = re.compile(r'^(\d+([.,]\d+)?(-\d+([.,]\d+)?)?(\s+(\d+([.,]\d+)?(-\d+([.,]\d+)?)?))*)$')
