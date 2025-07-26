@@ -49,7 +49,8 @@ FIELD_TYPES = [
             "tokenizer": {"class": "solr.StandardTokenizerFactory"},
             "filters": [
                 {"class": "solr.LowerCaseFilterFactory"},
-                {"class": "solr.StopFilterFactory", "words": "stopwords.txt", "ignoreCase": "true"}
+                {"class": "solr.StopFilterFactory", "words": "stopwords.txt", "ignoreCase": "true"},
+                {"class": "solr.PorterStemFilterFactory"}
             ]
         }
     }    
@@ -61,7 +62,7 @@ FIELDS = [
     {"name": "openalex_id", "type": "string", "stored": True, "indexed": True, "required": True},
     {"name": "doi", "type": "string", "stored": True, "indexed": True, "required": False},
     {"name": "title", "type": "text_general", "stored": True, "indexed": True},
-    {"name": "summary", "type": "text_general", "stored": True, "indexed": True, "multiValued": True},
+    {"name": "summary", "type": "text_general", "stored": True, "indexed": True, "multiValued": False},
     {"name": "published", "type": "date", "stored": True, "indexed": True, "docValues": True},
     {"name": "updated", "type": "date", "stored": True, "indexed": True, "docValues": True},
     {"name": "pdf_link", "type": "string", "stored": True, "indexed": True},
@@ -71,18 +72,17 @@ FIELDS = [
     {"name": "referenced_works", "type": "text_general", "stored": True, "indexed": True, "multiValued": True},
     {"name": "related_works", "type": "text_general", "stored": True, "indexed": True, "multiValued": True},
     {"name": "grants", "type": "string", "stored": True, "indexed": True, "docValues": True},
-    {"name": "landing_page_url", "type": "text_general", "stored": True, "indexed": True},
-    {"name": "author_orcid", "type": "text_general", "stored": True, "indexed": True, "multiValued": True},
+    {"name": "landing_page_url", "type": "string", "stored": True, "indexed": True},
+    {"name": "author_orcid", "type": "string", "stored": True, "indexed": True, "multiValued": True},
     {"name": "volume", "type": "string", "stored": True, "indexed": True},
     {"name": "issue", "type": "string", "stored": True, "indexed": True},
     {"name": "first_page", "type": "string", "stored": True, "indexed": True},
     {"name": "last_page", "type": "string", "stored": True, "indexed": True},
     {"name": "journal", "type": "string", "stored": True, "indexed": True, "multiValued": "true", "docValues": True},
     {"name": "concepts", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
-    {"name": "author_names", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
-    {"name": "open_access", "type": "boolean", "stored": True, "indexed": False, "multiValued": True, "docValues": True},
+    {"name": "author_names", "type": "text_general", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
+    {"name": "open_access", "type": "boolean", "stored": True, "indexed": False, "multiValued": False, "docValues": True},
     {"name": "language", "type": "string", "stored": True, "indexed": True, "multiValued": True,"docValues": True},
-    {"name": "institutions", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
     {"name": "keywords", "type": "string", "stored": True, "indexed": True, "multiValued": True, "docValues": True},
     {"name": "spellcheck_base", "type": "text_general", "stored": False, "indexed": True, "multiValued": True}
 ]

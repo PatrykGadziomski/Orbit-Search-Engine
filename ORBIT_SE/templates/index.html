@@ -90,7 +90,7 @@
                 data-oa="{{ result.open_access[0]|e }}"
                 data-pdf="{{ result.pdf_link|e }}"
                 data-lang="{{ result.language[0]|e }}"
-                data-institutions="{{ result.institutions|e if result.institutions else 'No institution existing' }}">Mehr</button>
+                >More</button>
             </p>
             <div class="mt-2">
               {% for subject in result.subjects %}
@@ -196,10 +196,19 @@
 
           <dt class="col-sm-3">Language:</dt>
           <dd class="col-sm-9" id="lang"></dd>
-
-          <dt class="col-sm-3">Institutions:</dt>
-          <dd class="col-sm-9" id="institutions"></dd>
         </dl>
+
+        <hr>
+        <h4>Similar Documents</h4>
+        <div id="similar-list">
+          <div class="text-center">
+            <div class="spinner-border text-primary" role="status" id="loading-spinner" style="display: none;">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <p id="similar-status">Click "More", to find similar documents.</p>
+          </div>
+        </div>
+
         {% else %}
         <!-- empty -->
         {% endif %}
@@ -208,32 +217,136 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      function renderSimilar(docs) {
+        const container = document.getElementById('similar-list');
+        const spinner = document.getElementById('loading-spinner');
+        const status = document.getElementById('similar-status');
+        
+        spinner.style.display = 'none';
+        
+        if (!docs || docs.length === 0) {
+          status.textContent = 'Keine ähnlichen Dokumente gefunden.';
+          return;
+        }
+        
+        status.style.display = 'none';
+        
+        const listHtml = docs.map((doc, index) => {
+          const title = (doc.title && Array.isArray(doc.title)) ? doc.title[0] : (doc.title || 'Kein Titel');
+          const authors = (doc.authorships_names && Array.isArray(doc.authorships_names)) 
+            ? doc.authorships_names.slice(0, 2).join(', ') + (doc.authorships_names.length > 2 ? ', et al.' : '')
+            : 'Keine Autoren';
+          const summary = (doc.summary && Array.isArray(doc.summary)) 
+            ? doc.summary[0].substring(0, 150) + (doc.summary[0].length > 150 ? '...' : '')
+            : 'Keine Zusammenfassung verfügbar';
+          const citations = doc.cited_by_count || 0;
+          const score = doc.score ? doc.score.toFixed(3) : 'N/A';
+          
+          return `
+            <div class="card mb-2">
+              <div class="card-body">
+                <h6 class="card-title">${title}</h6>
+                <p class="card-text">
+                  <small class="text-muted">${authors}</small><br>
+                  ${summary}<br>
+                  <small><strong>Cited:</strong> ${citations} | <strong>Similarity:</strong> ${score}</small>
+                </p>
+              </div>
+            </div>
+          `;
+        }).join('');
+        
+        container.innerHTML = listHtml;
+      }
+
       document.querySelectorAll('.btn-details').forEach(btn => {
-      btn.addEventListener('click', () => {
-      document.getElementById('title').textContent = btn.dataset.title;
-      document.getElementById('author').textContent = btn.dataset.author;
-      document.getElementById('summary').textContent  = btn.dataset.summary;
-      document.getElementById('published').textContent  = btn.dataset.published;
-      document.getElementById('updated').textContent  = btn.dataset.updated;
-      document.getElementById('arxivId').textContent = btn.dataset.arxivid;
-      const linkEl_arxiv = document.getElementById('arxivId');
-      linkEl_arxiv.href = btn.dataset.arxivid || '#';
-      document.getElementById('openalexId').textContent = btn.dataset.openalexid;
-      const linkEl_openalex = document.getElementById('openalexId');
-      linkEl_openalex.href = btn.dataset.openalexid || '#';
-      document.getElementById('citations').textContent  = btn.dataset.citations;
-      document.getElementById('type').textContent  = btn.dataset.type;
-      document.getElementById('biblio').textContent  = btn.dataset.biblio;
-      document.getElementById('journal').textContent  = btn.dataset.journal;
-      document.getElementById('oa').textContent  = btn.dataset.oa;
-      document.getElementById('pdf').textContent = btn.dataset.pdf;
-      const linkEl_pdf = document.getElementById('pdf');
-      linkEl_pdf.href = btn.dataset.pdf || '#';
-      document.getElementById('lang').textContent  = btn.dataset.lang;
-      document.getElementById('institutions').textContent  = btn.dataset.institutions;
-      document.getElementById('doi').textContent  = btn.dataset.doi;
-    });
-  });
-  </script>
+        btn.addEventListener('click', () => {
+          // Bestehende Daten füllen
+          document.getElementById('title').textContent = btn.dataset.title;
+          document.getElementById('author').textContent = btn.dataset.author;
+          document.getElementById('summary').textContent = btn.dataset.summary;
+          document.getElementById('published').textContent = btn.dataset.published;
+          document.getElementById('updated').textContent = btn.dataset.updated;
+          document.getElementById('arxivId').textContent = btn.dataset.arxivid;
+          const linkEl_arxiv = document.getElementById('arxivId');
+          linkEl_arxiv.href = btn.dataset.arxivid || '#';
+          document.getElementById('openalexId').textContent = btn.dataset.openalexid;
+          const linkEl_openalex = document.getElementById('openalexId');
+          linkEl_openalex.href = btn.dataset.openalexid || '#';
+          document.getElementById('citations').textContent = btn.dataset.citations;
+          document.getElementById('type').textContent = btn.dataset.type;
+          document.getElementById('biblio').textContent = btn.dataset.biblio;
+          document.getElementById('journal').textContent = btn.dataset.journal;
+          document.getElementById('oa').textContent = btn.dataset.oa;
+          document.getElementById('pdf').textContent = btn.dataset.pdf;
+          const linkEl_pdf = document.getElementById('pdf');
+          linkEl_pdf.href = btn.dataset.pdf || '#';
+          document.getElementById('lang').textContent = btn.dataset.lang;
+          document.getElementById('doi').textContent = btn.dataset.doi;
+          
+          // MLT laden
+          const spinner = document.getElementById('loading-spinner');
+          const status = document.getElementById('similar-status');
+          const container = document.getElementById('similar-list');
+          
+          // Reset similar section
+          container.innerHTML = `
+            <div class="text-center">
+              <div class="spinner-border text-primary" role="status" id="loading-spinner">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <p id="similar-status">Similar douments are being loaded...</p>
+            </div>
+          `;
+          
+          // Bestimme die beste verfügbare ID
+          const docId = btn.dataset.openalexid || btn.dataset.arxivid || btn.dataset.doi;
+          
+          if (!docId || docId === 'No doi existing') {
+            document.getElementById('similar-status').textContent = 'NO ID for similarity search available.';
+            document.getElementById('loading-spinner').style.display = 'none';
+            return;
+          }
+          
+          fetch('/mlt', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              doc_id: docId
+            })
+          })
+            .then(response => {
+              console.log('MLT Response Status:', response.status);
+              if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              console.log('MLT Response Data:', data);
+              
+              // Prüfe ob es ein Error-Objekt ist
+              if (data.error) {
+                throw new Error(data.error);
+              }
+              
+              // Prüfe verschiedene Datenstrukturen
+              const similarDocs = Array.isArray(data) ? data : (data.docs || []);
+              renderSimilar(similarDocs);
+            })
+            .catch(err => {
+              console.error('MLT error:', err);
+              document.getElementById('loading-spinner').style.display = 'none';
+              document.getElementById('similar-status').textContent = `Error: ${err.message}`;
+            });
+          
+          // Offcanvas öffnen
+          const offcanvas = new bootstrap.Offcanvas(document.getElementById('summaryCanvas'));
+          offcanvas.show();
+        });
+      });
+    </script>
   </body>
 </html>

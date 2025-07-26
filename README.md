@@ -97,6 +97,11 @@ Add to ``searchComponent`` in ``solrconfig.xml``:
 <str name="field">spellcheck_base</str>
 ```
 Add to ``requestHandler`` in ``solrconfig.xml``:
+Replace
+```xml
+<str name="field">_text_</str>
+```
+to
 ```xml
 <str name="spellcheck">true</str>
 ```

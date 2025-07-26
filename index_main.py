@@ -35,7 +35,7 @@ def load_data(file_path):
 if __name__ == "__main__":
     ### -- !!! The data download can take a while !!! -- Please use the data in ./data/ for first tests
     # 1. Aquisite data via arxiv and openalex APIs
-    main_access(arxiv_path, arxiv_openalex_path) # Run Only for new data aquisition
+    # main_access(arxiv_path, arxiv_openalex_path) # Run Only for new data aquisition
 
     # 2. Clean and preprocess data
     solr_docs = pd.read_json(arxiv_openalex_path, orient='records', lines=True)

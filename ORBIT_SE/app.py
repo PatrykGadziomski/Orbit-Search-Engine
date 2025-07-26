@@ -1,7 +1,8 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from orbit_utils.orbit_config_loader import load_config
 import pysolr
 import math
+import requests
 
 config = load_config()
 
@@ -43,9 +44,82 @@ def spellcheck(query):
     return results
 
 
+@app.route('/mlt', methods=['POST'])
+def get_mlt():
+    try:
+        doc_id = request.json.get('doc_id')
+        if not doc_id:
+            return jsonify({'error': 'No doc_id provided', 'docs': []})
+            
+        print(f"MLT Request für doc_id: {doc_id}")  # Debug-Output
+        
+        # Teste zunächst, ob das Dokument überhaupt existiert
+        test_queries = [
+            f'openalex_id:"{doc_id}"',
+            f'arxiv_id:"{doc_id}"', 
+            f'doi:"{doc_id}"',
+            f'id:"{doc_id}"'
+        ]
+        
+        found_doc = None
+        working_query = None
+        
+        # Erst prüfen, ob Dokument existiert
+        for test_query in test_queries:
+            test_params = {
+                'q': test_query,
+                'rows': 1,
+                'wt': 'json'
+            }
+            test_resp = requests.get(f'http://localhost:{solr_port}/solr/{solr_core}/select', params=test_params)
+            print(f"Test Query: {test_query}, Status: {test_resp.status_code}")
+            
+            if test_resp.status_code == 200:
+                test_data = test_resp.json()
+                if test_data.get('response', {}).get('numFound', 0) > 0:
+                    found_doc = test_data['response']['docs'][0]
+                    working_query = test_query
+                    print(f"Documents with Query: {test_query}")
+                    break
+        
+        if not found_doc:
+            print(f"Document with ID {doc_id} not found")
+            return jsonify({'error': 'Document not found', 'docs': []})
+        
+        # Jetzt MLT versuchen
+        mlt_params = {
+            'q': working_query,
+            'mlt': 'true',
+            'mlt.fl': 'title,summary,concepts',  # Vereinfachte Felder
+            'mlt.mindf': 1,
+            'mlt.mintf': 1,
+            'mlt.count': 5,
+            'fl': 'title,summary,openalex_id,arxiv_id,doi,authorships_names,published,cited_by_count,score',
+            'wt': 'json'
+        }
+        
+        mlt_resp = requests.get(f'http://localhost:{solr_port}/solr/{solr_core}/mlt', params=mlt_params)
+        print(f"MLT Response Status: {mlt_resp.status_code}")
+        
+        if mlt_resp.status_code == 200:
+            mlt_data = mlt_resp.json()
+            print(f"MLT Response: {mlt_data}")
+            similar_docs = mlt_data.get('response', {}).get('docs', [])
+            return jsonify(similar_docs)
+        else:
+            print(f"MLT Error: {mlt_resp.status_code}, {mlt_resp.text}")
+            return jsonify({'error': f'MLT request failed: {mlt_resp.status_code}', 'docs': []})
+        
+    except Exception as e:
+        print(f"MLT Exception: {str(e)}")
+        app.logger.error(f"MLT Error for doc_id {doc_id}: {str(e)}")
+        return jsonify({'error': str(e), 'docs': []})
+
+
 @app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
+
 
 @app.route("/search", methods=["GET"])
 def search():
@@ -68,8 +142,8 @@ def search():
 
         params = {
             "qf": "title^5 author_names^3 summary^2 fulltext concepts spellcheck_base^1",
-            "defType": "edismax",         
-            "fl": "*,score",
+            "defType": "edismax",
+            "fl": "*,score",      
             "fq": solr_filters,
             "debugQuery": "true",
             "bf": "log(cited_by_count)^2",
@@ -100,6 +174,7 @@ def search():
                            total_pages=total_pages,
                            suggestions=spell_suggestions,
                            facets=facets)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
