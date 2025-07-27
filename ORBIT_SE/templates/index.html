@@ -261,7 +261,6 @@
 
       document.querySelectorAll('.btn-details').forEach(btn => {
         btn.addEventListener('click', () => {
-          // Bestehende Daten füllen
           document.getElementById('title').textContent = btn.dataset.title;
           document.getElementById('author').textContent = btn.dataset.author;
           document.getElementById('summary').textContent = btn.dataset.summary;
@@ -284,12 +283,10 @@
           document.getElementById('lang').textContent = btn.dataset.lang;
           document.getElementById('doi').textContent = btn.dataset.doi;
           
-          // MLT laden
           const spinner = document.getElementById('loading-spinner');
           const status = document.getElementById('similar-status');
           const container = document.getElementById('similar-list');
           
-          // Reset similar section
           container.innerHTML = `
             <div class="text-center">
               <div class="spinner-border text-primary" role="status" id="loading-spinner">
@@ -299,7 +296,6 @@
             </div>
           `;
           
-          // Bestimme die beste verfügbare ID
           const docId = btn.dataset.openalexid || btn.dataset.arxivid || btn.dataset.doi;
           
           if (!docId || docId === 'No doi existing') {
@@ -327,12 +323,10 @@
             .then(data => {
               console.log('MLT Response Data:', data);
               
-              // Prüfe ob es ein Error-Objekt ist
               if (data.error) {
                 throw new Error(data.error);
               }
               
-              // Prüfe verschiedene Datenstrukturen
               const similarDocs = Array.isArray(data) ? data : (data.docs || []);
               renderSimilar(similarDocs);
             })
@@ -342,7 +336,6 @@
               document.getElementById('similar-status').textContent = `Error: ${err.message}`;
             });
           
-          // Offcanvas öffnen
           const offcanvas = new bootstrap.Offcanvas(document.getElementById('summaryCanvas'));
           offcanvas.show();
         });

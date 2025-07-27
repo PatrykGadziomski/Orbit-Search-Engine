@@ -1,10 +1,11 @@
-"""
+'''
 Author: Patryk Gadziomski
-Updated: 20.06.2025
-"""
+Last udate: 27.07.2025
+'''
 
 import yaml
 import os
+
 
 def load_config():
     current_dir = os.path.dirname(os.path.abspath(__file__))

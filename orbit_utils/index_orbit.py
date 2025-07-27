@@ -1,9 +1,10 @@
-"""
+'''
 Author: Patryk Gadziomski
-Updated: 20.06.2025
-"""
+Last udate: 27.07.2025
+'''
 
 import requests
+
 
 def index_solr_docs(docs, SOLR_URL):
     enriched_docs = []
@@ -25,4 +26,4 @@ def index_solr_docs(docs, SOLR_URL):
     if resp.status_code != 200:
         print(f"Unexpected Error {resp.status_code} - {resp.text}")
     else:
-        print(f"{len(enriched_docs)} Dokumente erfolgreich indexiert.")
+        print(f"{len(enriched_docs)} Dokuments successfully indexed")

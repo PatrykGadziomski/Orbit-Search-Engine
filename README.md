@@ -39,26 +39,6 @@ Contact: [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=
 ORBIT specializes in indexing and retrieving **scientific papers** in the field of **intelligent systems for space exploration and Earth observation**.  
 It is tailored to support research workflows and discovery in these high-impact, data-intensive domains.
 
----
-
-## Current Status
-
-- Development is active  
-- Data acquisition has been implemented as a pipeline  
-- Solr index schema has been designed and created  
-- Indexing pipeline is in place  
-- Search features include: **keyword search**, **wildcard search**, **phrase search**, and **faceted search**  
-- Faceted navigation is already visualized  
-- Basic spellchecking is enabled  
-- Spell recommendations are visualized
-
-**TODO:**
-- Identifying similar documents (More Like This feature)
-- Autocompletion
-- Highlighting query terms in the search result preview
-- Frontend development
----
-
 ## Installation & Setup
 
 ### Create Venv
@@ -90,21 +70,9 @@ docker exec -it solr-server solr config -c orbit --action set-user-property --pr
 ```
 
 ### Important Schema-Steup
-Has to be added to the ``solrconfig.xml`` of your core to activate spellchecking.
+The ``solrconfig.xml`` should be switched with be provided cofig file in this repository: ``ORBIT-Search-Engine/solrconfig.xml``.
 
-Add to ``searchComponent`` in ``solrconfig.xml``:
-```xml
-<str name="field">spellcheck_base</str>
-```
-Add to ``requestHandler`` in ``solrconfig.xml``:
-Replace
-```xml
-<str name="field">_text_</str>
-```
-to
-```xml
-<str name="spellcheck">true</str>
-```
+This file includes the neccessary fields for spellchecking and the "More Like This" function.
 
 ### Data acquisition
 During data acquisition, scientific papers are collected from **arXiv.org** using their public API and enriched with additional metadata from **OpenAlex.org**, also via API access.
@@ -139,7 +107,7 @@ After starting the web app and navigating to your localhost in your browser:
 
 You can combine the wildcards.
 
-- **Phrase search**: You can use the ""-marks to search for the specific word like "AI" or "Explainable AI"
+- **Phrase search**: You can use the ""-marks to search for the specific word like "Explainable AI"
 - **Faceted search**: After searching a term you can select from the following facets to filter the results:
   - concepts
   - open access
@@ -149,7 +117,10 @@ You can combine the wildcards.
 
 You can combine multiple facets.
 
-**Spellchecking**: You will get suggestions for terms, if you term lead to no results. (Tested with "amelie", still have to improve this function)
+**Spellchecking**: You will get suggestions for similar terms.
+
+**More Like This**: You will get suggestions for similar papers if you choose one frmo the list of results.
+
 
 ## Contact & Collaboration
 For questions, feedback, or contributions to the project, please reach out to me, the developer.

@@ -1,7 +1,7 @@
-"""
+'''
 Author: Patryk Gadziomski
-Updated: 19.06.2025
-"""
+Last udate: 27.07.2025
+'''
 
 import urllib
 import xml.etree.ElementTree as ET
@@ -146,9 +146,9 @@ def fetch_openalex_data(url, params=None):
         if response.status_code == 200:
             return response.json()
         else:
-            print(f"Kein Ergebnis von OpenAlex (Status {response.status_code}) für URL: {url}")
+            print(f"No result from OpenAlex (Status {response.status_code}) for URL: {url}")
     except Exception as e:
-        print(f"Fehler beim Zugriff auf OpenAlex: {e}")
+        print(f"Error during access on OpenAlex: {e}")
     return None
 
 
@@ -181,7 +181,7 @@ def access_openalex_data(data, file_path):
             enriched = enrich_paper(paper, match)
             append_to_jsonl(file_path=file_path, record=enriched)
         else:
-            print(f"Keine passenden OpenAlex-Daten für Paper: {paper.get('title', 'Unbekannt')}")
+            print(f"No matching OpenAlex-data for Paper: {paper.get('title', 'Unbekannt')}")
 
 
 def main_access(arxiv_file_path, eriched_file_path):

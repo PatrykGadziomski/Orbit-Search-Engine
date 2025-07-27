@@ -1,7 +1,7 @@
-"""
+'''
 Author: Patryk Gadziomski
-Updated: 19.06.2025
-"""
+Last udate: 27.07.2025
+'''
 
 import pandas as pd
 import re
@@ -25,16 +25,16 @@ def remove_likely_table_blocks(text):
     return text
 
 
-def remove_number_only_lines(text): # Wird da shier benutzt?
-    lines = text.split('\n')
-    cleaned_lines = []
-    pattern = re.compile(r'^(\d+([.,]\d+)?(-\d+([.,]\d+)?)?(\s+(\d+([.,]\d+)?(-\d+([.,]\d+)?)?))*)$')
+# def remove_number_only_lines(text): # Is this function used?
+#     lines = text.split('\n')
+#     cleaned_lines = []
+#     pattern = re.compile(r'^(\d+([.,]\d+)?(-\d+([.,]\d+)?)?(\s+(\d+([.,]\d+)?(-\d+([.,]\d+)?)?))*)$')
 
-    for line in lines:
-        line_strip = line.strip()
-        if not pattern.match(line_strip):
-            cleaned_lines.append(line)
-    return '\n'.join(cleaned_lines)
+#     for line in lines:
+#         line_strip = line.strip()
+#         if not pattern.match(line_strip):
+#             cleaned_lines.append(line)
+#     return '\n'.join(cleaned_lines)
 
 
 def extract_inner_args(col_list, col_name):

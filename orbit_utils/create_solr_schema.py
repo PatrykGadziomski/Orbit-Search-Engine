@@ -1,7 +1,7 @@
-"""
+'''
 Author: Patryk Gadziomski
-Updated: 20.06.2025
-"""
+Last udate: 27.07.2025
+'''
 
 import requests
 
@@ -87,28 +87,29 @@ FIELDS = [
     {"name": "spellcheck_base", "type": "text_general", "stored": False, "indexed": True, "multiValued": True}
 ]
 
+
 def add_field_type(type_def, SOLR_URL):   
     delete_payload = {"delete-field-type": {"name": type_def["name"]}}
     delete_response = requests.post(SOLR_URL, json=delete_payload)
     if delete_response.status_code == 200:
-        print(f"Feldtyp '{type_def['name']}' erfolgreich gelöscht.")
+        print(f"Fieldtype '{type_def['name']}' deleted successfully.")
     
     payload = {"add-field-type": type_def}
     response = requests.post(SOLR_URL, json=payload)
     if response.status_code == 200:
-        print(f"Feldtyp '{type_def['name']}' erfolgreich hinzugefügt.")
+        print(f"Fieldtype '{type_def['name']}' added successfully.")
     elif "already exists" in response.text:
-        print(f"Feldtyp '{type_def['name']}' existiert bereits.")
+        print(f"Fieldtype '{type_def['name']}' already exists.")
     else:
-        print(f"Fehler bei Feldtyp '{type_def['name']}': {response.text}")
+        print(f"Error during Fieldtype '{type_def['name']}': {response.text}")
 
 
 def add_field(field_def, SOLR_URL):
     payload = {"add-field": field_def}
     response = requests.post(SOLR_URL, json=payload)
     if response.status_code == 200:
-        print(f"Index-Feld '{field_def['name']}' erfolgreich zum Schema hinzugefügt.")
+        print(f"Index-Field '{field_def['name']}' added to schema successfully.")
     elif "already exists" in response.text:
-        print(f"Index-Feld '{field_def['name']}' existiert bereits.")
+        print(f"Index-Field '{field_def['name']}' already exists.")
     else:
-        print(f"Fehler bei Feld '{field_def['name']}': {response.text}")
+        print(f"Error during Field '{field_def['name']}': {response.text}")

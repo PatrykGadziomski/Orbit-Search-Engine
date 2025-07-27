@@ -1,3 +1,8 @@
+'''
+Author: Patryk Gadziomski
+Last udate: 27.07.2025
+'''
+
 from flask import Flask, request, render_template, jsonify
 from orbit_utils.orbit_config_loader import load_config
 import pysolr
@@ -11,21 +16,20 @@ app = Flask(__name__)
 solr_host = config['solr_host']
 solr_port = config['solr_port']
 solr_core = config['solr_core']
-
 solr_url = f"http://{solr_host}:{solr_port}/solr/{solr_core}"
-
 solr = pysolr.Solr(solr_url)
 
-import requests
 
 def spellcheck(query):
+    # Spellcheck params
     params = {
         'q': query,
         'spellcheck': 'true',
         'spellcheck.count': 5,
         'wt': 'json'
     }
-    response = requests.get(f'http://localhost:{solr_port}/solr/{solr_core}/spell', params=params)
+
+    response = requests.get(f'{solr_url}/spell', params=params)
     data = response.json()
     suggestions_raw  = data.get('spellcheck', {}).get('suggestions', [])
 
@@ -50,10 +54,8 @@ def get_mlt():
         doc_id = request.json.get('doc_id')
         if not doc_id:
             return jsonify({'error': 'No doc_id provided', 'docs': []})
-            
-        print(f"MLT Request für doc_id: {doc_id}")  # Debug-Output
         
-        # Teste zunächst, ob das Dokument überhaupt existiert
+        # Test existence
         test_queries = [
             f'openalex_id:"{doc_id}"',
             f'arxiv_id:"{doc_id}"', 
@@ -64,15 +66,15 @@ def get_mlt():
         found_doc = None
         working_query = None
         
-        # Erst prüfen, ob Dokument existiert
+        # Test existence
         for test_query in test_queries:
             test_params = {
                 'q': test_query,
                 'rows': 1,
                 'wt': 'json'
             }
+
             test_resp = requests.get(f'http://localhost:{solr_port}/solr/{solr_core}/select', params=test_params)
-            print(f"Test Query: {test_query}, Status: {test_resp.status_code}")
             
             if test_resp.status_code == 200:
                 test_data = test_resp.json()
@@ -86,11 +88,11 @@ def get_mlt():
             print(f"Document with ID {doc_id} not found")
             return jsonify({'error': 'Document not found', 'docs': []})
         
-        # Jetzt MLT versuchen
+        # MLT
         mlt_params = {
             'q': working_query,
             'mlt': 'true',
-            'mlt.fl': 'title,summary,concepts',  # Vereinfachte Felder
+            'mlt.fl': 'title,summary,concepts',
             'mlt.mindf': 1,
             'mlt.mintf': 1,
             'mlt.count': 5,
@@ -99,7 +101,6 @@ def get_mlt():
         }
         
         mlt_resp = requests.get(f'http://localhost:{solr_port}/solr/{solr_core}/mlt', params=mlt_params)
-        print(f"MLT Response Status: {mlt_resp.status_code}")
         
         if mlt_resp.status_code == 200:
             mlt_data = mlt_resp.json()
